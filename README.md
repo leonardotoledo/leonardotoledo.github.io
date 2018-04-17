@@ -1,2 +1,5 @@
 # leonardotoledo.github.io
-My personal page
+
+Hello, traveler!
+
+Here, you should find lots of info about myself. Enjoy!
