@@ -1,7 +1,7 @@
 ---
 layout: page
-title: About
-permalink: /about/
+title: Curriculum
+permalink: /curriculum/
 ---
 
 **Leonardo Tolêdo Ferreira**
