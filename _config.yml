@@ -17,7 +17,7 @@ title: Leonardo Tolêdo
 email: leonardo.ferreira@ctec.ufal.br
 description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://leonardotoledo.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
+url: "http://leonardotoledo.org" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: doublemilliways
 author_name: Leonardo Tolêdo
 github_username: leonardotoledo
