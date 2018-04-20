@@ -28,8 +28,8 @@ theme: minima
 
 plugins:
   - jekyll-feed
-  - github-cards:
-          github_access_token:  "a0d7b34f3d929a8d19e8599214d397f0ab1ffdba"
+github-cards:
+  github_access_token:  "a0d7b34f3d929a8d19e8599214d397f0ab1ffdba"
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
