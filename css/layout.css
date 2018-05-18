@@ -595,12 +595,10 @@ ul#nav li.current a { color: #F06000; }
    color: #636363;
    font-size: 17px;
 }
-/*#
 call-to-action .button {
 	color:#fff;
    background: #0D0D0D;
 }
-*/
 #call-to-action .button:hover,
 #call-to-action .button:active {
    background: #FFFFFF;
