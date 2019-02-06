@@ -1,7 +1,7 @@
 ﻿<?php
 
 // Replace this with your own email address
-$siteOwnersEmail = 'leonardo.ferreira@ctec.ufal.br';
+$siteOwnersEmail = 'contato@leonardotoledo.org';
 
 
 if($_POST) {
