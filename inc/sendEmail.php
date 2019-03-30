@@ -1,8 +1,6 @@
-﻿<?php
+<?php
 
-// Replace this with your own email address
-$siteOwnersEmail = 'contato@leonardotoledo.org';
-
+$siteOwnersEmail = "contato@leonardotoledo.org";
 
 if($_POST) {
 
