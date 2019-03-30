@@ -260,9 +260,9 @@
 
             <div class="eight columns">
 
-               <!-- form -->
-               <form action="/inc/sendEmail.php" method="post" id="contactForm" name="contactForm">
-					<fieldset>
+               <!-- form  (Optionals: id="contactForm" name="contactForm") -->
+               <form action="inc/sendEmail.php" method="post">
+					<fieldset> 
 
                   <div>
 						   <label for="contactName">Name <span class="required">*</span></label>
@@ -275,7 +275,7 @@
                   </div>
 
                   <div>
-						   <label for="contactSubject">Subject</label>
+						   <label for="contactSubject">Subject <span class="required">*</span></label></label>
 						   <input type="text" value="" size="35" id="contactSubject" name="contactSubject">
                   </div>
 
