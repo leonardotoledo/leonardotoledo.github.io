@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import {
+  Alert,
   Box,
   Button,
   CircularProgress,
+  Snackbar,
   TextField,
   Typography,
 } from "@mui/material";
 
 const Contact = () => {
-
   const validEmail = new RegExp(
     "^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$"
   );
@@ -20,18 +21,22 @@ const Contact = () => {
     request: undefined,
   };
 
-  const [name, setName] = useState(undefined);
-  const [email, setEmail] = useState(undefined);
-  const [subject, setSubject] = useState("");
-  const [message, setMessage] = useState(undefined);
+  const defaultForm = {
+    name: undefined,
+    email: undefined,
+    subject: "",
+    message: undefined,
+  };
 
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [form, setForm] = useState(defaultForm);
   const [error, setError] = useState(defaultError);
+  const [openAlert, setOpenAlert] = useState(true);
 
   useEffect(() => {
-    if (name !== undefined) {
-      if (name.length < 2) {
+    if (form.name !== undefined) {
+      if (form.name.length < 2) {
         setError((error) => {
           return { ...error, name: "Please enter your name." };
         });
@@ -41,11 +46,11 @@ const Contact = () => {
         });
       }
     }
-  }, [name]);
+  }, [form.name]);
 
   useEffect(() => {
-    if (email !== undefined) {
-      if (!validEmail.test(email)) {
+    if (form.email !== undefined) {
+      if (!validEmail.test(form.email)) {
         setError((error) => {
           return { ...error, email: "Please enter a valid email address." };
         });
@@ -56,11 +61,11 @@ const Contact = () => {
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [email]);
+  }, [form.email]);
 
   useEffect(() => {
-    if (message !== undefined) {
-      if (message.length < 15) {
+    if (form.message !== undefined) {
+      if (form.message.length < 15) {
         setError((error) => {
           return {
             ...error,
@@ -74,13 +79,17 @@ const Contact = () => {
         });
       }
     }
-  }, [message]);
+  }, [form.message]);
 
   const submit = () => {
-    if (name === undefined || email === undefined || message === undefined) {
-      setName("");
-      setEmail("");
-      setMessage("");
+    if (
+      form.name === undefined ||
+      form.email === undefined ||
+      form.message === undefined
+    ) {
+      setForm((prev) => {
+        return { ...prev, name: "", email: "", message: "" };
+      });
       return;
     }
 
@@ -90,9 +99,8 @@ const Contact = () => {
 
     setLoading(true);
     setSubmitted(false);
+    setOpenAlert(true);
     setError(defaultError);
-
-    const data = { name, email, subject, message };
 
     fetch(
       "https://public.herotofu.com/v1/3bf41850-e5ca-11ec-a7c6-13f77fe97b07",
@@ -102,7 +110,7 @@ const Contact = () => {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(form),
       }
     )
       .then((response) => {
@@ -141,7 +149,7 @@ const Contact = () => {
       sx={{
         p: "2rem",
         mx: "auto",
-        color: "text.primary"
+        color: "text.primary",
       }}
       maxWidth="100vh"
       className="contact"
@@ -157,7 +165,11 @@ const Contact = () => {
         variant="filled"
         error={error.name !== undefined}
         helperText={error.name}
-        onChange={(e) => setName(e.target.value)}
+        onChange={(e) =>
+          setForm((prev) => {
+            return { ...prev, name: e.target.value };
+          })
+        }
       />
       {/* E-MAIL FIELD */}
       <TextField
@@ -171,7 +183,11 @@ const Contact = () => {
         variant="filled"
         error={error.email !== undefined}
         helperText={error.email}
-        onChange={(e) => setEmail(e.target.value)}
+        onChange={(e) =>
+          setForm((prev) => {
+            return { ...prev, email: e.target.value };
+          })
+        }
       />
       {/* SUBJECT FIELD */}
       <TextField
@@ -181,7 +197,11 @@ const Contact = () => {
         label="Subject"
         name="subject"
         variant="filled"
-        onChange={(e) => setSubject(e.target.value)}
+        onChange={(e) =>
+          setForm((prev) => {
+            return { ...prev, subject: e.target.value };
+          })
+        }
       />
       {/* MESSAGE FIELD */}
       <TextField
@@ -195,7 +215,11 @@ const Contact = () => {
         minRows={6}
         error={error.message !== undefined}
         helperText={error.message}
-        onChange={(e) => setMessage(e.target.value)}
+        onChange={(e) =>
+          setForm((prev) => {
+            return { ...prev, message: e.target.value };
+          })
+        }
         variant="filled"
       />
       {/* SEND BUTTON */}
@@ -218,10 +242,32 @@ const Contact = () => {
             <b>SEND</b>
           </Typography>
         </Button>
-        <Box sx={{ p: 1, mx: "auto"}}>
-          {loading && <CircularProgress/>}
-          {error.request !== undefined && <Box sx={{ color: "red" }}>{error.request}</Box>}
-          {(submitted && error.request === undefined) && <Box sx={{ color: "green" }}>Your message was successfully delivered.</Box>}
+        <Box sx={{ p: 1, mx: "auto" }}>
+          {loading && <CircularProgress />}
+          {(openAlert && error.request !== undefined) && (
+            <Snackbar
+              open
+              anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+              autoHideDuration={6000}
+              onClose={() => setOpenAlert(false)}
+            >
+              <Alert onClose={() => setOpenAlert(false)} severity="error" sx={{ width: '100%' }}>
+              {error.request}
+              </Alert>
+            </Snackbar>
+          )}
+          {(openAlert && submitted && error.request === undefined) && (
+            <Snackbar
+              open
+              anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+              autoHideDuration={6000}
+              onClose={() => setOpenAlert(false)}
+            >
+              <Alert onClose={() => setOpenAlert(false)} severity="success" sx={{ width: '100%' }}>
+                Your message was successfully delivered
+              </Alert>
+            </Snackbar>
+          )}
         </Box>
       </Box>
     </Box>
