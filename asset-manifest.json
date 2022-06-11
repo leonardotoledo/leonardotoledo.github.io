@@ -1,13 +1,18 @@
 {
-  "files": {
-    "main.js": "/static/js/main.193bbf12.js",
-    "static/js/787.f859a24e.chunk.js": "/static/js/787.f859a24e.chunk.js",
-    "static/media/terrain.jpg": "/static/media/terrain.13934187cf9302666708.jpg",
-    "index.html": "/index.html",
-    "main.193bbf12.js.map": "/static/js/main.193bbf12.js.map",
-    "787.f859a24e.chunk.js.map": "/static/js/787.f859a24e.chunk.js.map"
-  },
-  "entrypoints": [
-    "static/js/main.193bbf12.js"
-  ]
+  "main.js": "/static/js/main.144b9940.chunk.js",
+  "main.js.map": "/static/js/main.144b9940.chunk.js.map",
+  "static/js/1.06ed7020.chunk.js": "/static/js/1.06ed7020.chunk.js",
+  "static/js/1.06ed7020.chunk.js.map": "/static/js/1.06ed7020.chunk.js.map",
+  "static/js/2.8f3220cc.chunk.js": "/static/js/2.8f3220cc.chunk.js",
+  "static/js/2.8f3220cc.chunk.js.map": "/static/js/2.8f3220cc.chunk.js.map",
+  "runtime~main.js": "/static/js/runtime~main.21a7007f.js",
+  "runtime~main.js.map": "/static/js/runtime~main.21a7007f.js.map",
+  "static/media/terrain.jpg": "/static/media/terrain.49d9de54.jpg",
+  "static/media/about.md": "/static/media/about.9d81b43c.md",
+  "static/media/scientific.md": "/static/media/scientific.9e472196.md",
+  "static/media/translation.md": "/static/media/translation.11f3208f.md",
+  "static/media/web.md": "/static/media/web.b9f0ef74.md",
+  "index.html": "/index.html",
+  "precache-manifest.18bc3f23cf5e91412790de7a45455a93.js": "/precache-manifest.18bc3f23cf5e91412790de7a45455a93.js",
+  "service-worker.js": "/service-worker.js"
 }
