@@ -12,7 +12,7 @@ import {
   Typography,
 } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 
 const Header = ({ hide, pages, selectedPage, setSelectedPage, selectedMode, setSelectedMode }) => {
 

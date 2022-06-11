@@ -1,9 +1,9 @@
 import React from "react";
 import { Box } from "@mui/material";
 
-import About from "./Pages/About";
-import Contact from "./Pages/Contact";
-import Work from "./Pages/Work";
+import About from "./About/About";
+import Contact from "./Contact/Contact";
+import Work from "./Work/Work";
 
 export default function Content({ screenSize, selectedPage }) {
   

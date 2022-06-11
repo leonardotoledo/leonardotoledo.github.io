@@ -251,7 +251,7 @@ const Contact = () => {
               autoHideDuration={6000}
               onClose={() => setOpenAlert(false)}
             >
-              <Alert onClose={() => setOpenAlert(false)} severity="error" sx={{ width: '100%' }}>
+              <Alert onClose={() => setOpenAlert(false)} severity="error" sx={{ width: "100%" }}>
               {error.request}
               </Alert>
             </Snackbar>
@@ -263,7 +263,7 @@ const Contact = () => {
               autoHideDuration={6000}
               onClose={() => setOpenAlert(false)}
             >
-              <Alert onClose={() => setOpenAlert(false)} severity="success" sx={{ width: '100%' }}>
+              <Alert onClose={() => setOpenAlert(false)} severity="success" sx={{ width: "100%" }}>
                 Your message was successfully delivered
               </Alert>
             </Snackbar>

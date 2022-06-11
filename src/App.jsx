@@ -26,12 +26,12 @@ const App = () => {
   const [scrollTarget, setScrollTarget] = useState();
 
   const theme = useMemo(() => createTheme({
-    palette: selectedMode === 'light' ? lightMode : darkMode,
+    palette: selectedMode === "light" ? lightMode : darkMode,
     components: {
       MuiInputLabel: {
         styleOverrides: {
           root: {
-            color: selectedMode === 'light' ? "black" : "white"
+            color: selectedMode === "light" ? "black" : "white"
           }
         }
       },
